@@ -3,7 +3,7 @@ title: Scourge of the Internet
 description: I now have a personal blog...
 slug: scourge-of-the-internet
 date: 2024-12-12 00:26:00+0000
-image: /post/scourge/sleepy_piggies.jpg
+image: /images/sleepy_piggies.jpg
 categories:
     - Creative(?) Writing
 tags:
