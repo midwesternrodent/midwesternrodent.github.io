@@ -2,9 +2,10 @@
 title: Scourge of the Internet
 description: I now have a personal blog...
 slug: scourge-of-the-internet
-date: 2024-12-12 00:26:00+0000
+date: 2024-12-11 00:26:00+0000
+image: /post/scourge/sleepy_piggies.jpg
 categories:
-    - Creative Writing
+    - Creative(?) Writing
 tags:
     - web hosting
     - rodent facts
@@ -32,7 +33,7 @@ Or, perhaps it's a matter of perspective. Rattus norvegicus is after all, not th
 
 # Peace
 
-Perhaps, with proper guardrails, I can try to do the same out here on this foreign land of the internet far from my home on Laurentia. Perhaps www.midwesternrodent.com can become a bastion of technology and rodent knowledge. Offering you tips, tricks, and disturbing anecdotes on both topics as my personal experience marches forward. Perhaps this one singular blog hosted on github pages can be *the* blog that finally gets it right.
+Perhaps, with proper guardrails, I can try to do the same out here on this foreign land of the internet far from my home on [Laurentia](https://en.wikipedia.org/wiki/Laurentia). Perhaps www.midwesternrodent.com can become a bastion of technology and rodent knowledge. Offering you tips, tricks, and disturbing anecdotes on both topics as my personal experience marches forward. Perhaps this one singular blog hosted on github pages can be *the* blog that finally gets it right.
 
 As I look back on what I have created so far in these 7 previous paragraphs, I'm filled with peace. Peace, because I realize that I will never be able to live up to those unrealistic expectations. Man, that is a weight off my shoulders.
 
