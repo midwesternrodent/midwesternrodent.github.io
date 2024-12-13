@@ -10,7 +10,7 @@ tags:
     - web hosting
     - rodent facts
     - social commentary
-draft: true
+draft: false
 ---
 
 ## Rattus Norvegicus
