@@ -1,0 +1,10 @@
+{{- $id := .Get "id" | default (.Get 0) -}}
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://youtube.com/embed/{{ $id }}{{ with .Get "autoplay" }}{{ if eq . "true" }}?autoplay=1{{ end }}{{ end }}" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+{{ end -}}
