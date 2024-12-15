@@ -10,7 +10,7 @@ tags:
     - Rodent Facts
     - Guinea Pigs
     - Pet Care
-draft: true
+draft: false
 ---
 
 ## Guinea Pig Fight Club
@@ -106,6 +106,10 @@ Once they were out from under the towel, I could see that neither pig had any vi
 ![a gif showing the sequence described above](/images/calming-down.gif)
 
 If something like that happened again, or I had seen any sign of injury from either pig, I would have stopped the session immediately. However, because I let it continue, every time Klaus postured at Ty Lee like that again, she submitted quickly. This kind of interaction is exactly why I wanted to write this post. Yes these pigs fought, but they still had a successful bonding session. Since this is a re-introduction I also have the benefit of knowing that Ty Lee and Klaus are some of the closest friends we have among our herd. I regularly see them engage in grooming behavior - a rarity with guinea pigs - and they frequently choose to bed down near each other. Interactions like this during bonding sessions are not an indication that your guinea pigs won't get along long term, it only shows that they haven't quite settled the pecking order yet, but they'll get there. Ty Lee just needed to be reminded that if she wants to be in the herd, Klaus is in charge and she can't be picking fights with the other sows.
+
+You can watch the full video of the brawl below.
+
+{{% youtube "ZKOALxyebCo" %}}
 
 ### Examples of Normal Boar Dominance
 
