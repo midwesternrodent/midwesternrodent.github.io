@@ -214,13 +214,13 @@ also add your user to the lpadmin group
 sudo usermod -aG lpadmin savapage
 ```
 
-For configuration purposes we're going to allow external connections to cups. Since we don't have access to the webui (no desktop on the pi and it only listens on localhost), we'll need to edit the configuration file manually.Configuring
+For configuration purposes we're going to allow external connections to cups. Since we don't have access to the webui (no desktop on the pi and it only listens on localhost), we'll need to edit the configuration file manually.
 
 ```bash
 sudo nano /etc/cups/cupsd.conf
 ```
 
-Change the following sections so they appear as below. Note, these options are not all in the same location so **do not** paste this to the bottom of your config, it won't work. Also note that I am allowing connections only from 192.168.5.2, which is a specific address on my network since the defaults mentioned in the savapage docs for @LOCAL, only work if you're on the same subnet. I plan on segmenting this off on the IOT network so the change is necessary. Edit the IP to @LOCAL or your machine's IP as needed.
+Change the following sections so they appear as below. Note, these options are not all in the same location so **do not** paste this to the bottom of your config, it won't work. Also note that I am allowing connections only from 192.168.5.2, which is a specific address on my network since the defaults mentioned in the [savapage docs](https://www.savapage.org/docs/manual/ch-install-config-cups-samba.html) for @LOCAL, only work if you're on the same subnet. I plan on segmenting this off on the IOT network so the change is necessary. Edit the IP to @LOCAL or your machine's IP as needed.
 
 ```bash
 Listen 0.0.0.0:631
@@ -249,7 +249,7 @@ WebInterface Yes
 
 Finally we can navigate to the web ui using the IP address of the pi and port 631 `http://xx.xx.xx.xx:631`. After installing the drivers and cups, I can see on my report at `Administration > Manage Printers` that my machine was auto-detected without issue. You may need to reboot your machine, or add it manually through the "add a printer" dialog in the cups web ui.
 
-Even though my printer was automatically detected with the brlaser drivers, I want to make a few changes to the defaults mostly to enable duplex printing. Go to Administration > Manage Printers > and select your printer. From there click the dropdown for Administration and choose "Set Default Options" then go ahead and make your changes.
+Even though my printer was automatically detected with the [brlaser drivers](https://github.com/pdewacht/brlaser), I want to make a few changes to the defaults mostly to enable duplex printing. Go to Administration > Manage Printers > and select your printer. From there click the dropdown for Administration and choose "Set Default Options" then go ahead and make your changes.
 
 ![](/images/brother_printer_options.png)
 
@@ -322,7 +322,7 @@ cp ~/savapage-pam/target/savapage-pam ~/savapage/server/bin/linux-x64/savapage-p
 
 ### Installing savapage
 
-Savapage requires you use `/opt/savapage/` as the program directory so let's create that and set the ownership.
+[Savapage requires you use `/opt/savapage/`](https://www.savapage.org/docs/manual/ch-install-create-user-account.html) as the program directory so let's create that and set the ownership.
 
 ```bash
 sudo mkdir -p /opt/savapage
