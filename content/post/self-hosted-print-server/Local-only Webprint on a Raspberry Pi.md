@@ -1,6 +1,6 @@
 ---
 title: Local-only Webprint on a Raspberry Pi
-description: Configure a raspberry pi with savaprint to enable printing from anywhere with a browser. You'll never worry about drivers again.
+description: Configure a raspberry pi with savapage to enable printing from anywhere with a browser. You'll never worry about drivers again.
 slug: self-hosted-print-server
 date: 2025-01-19 12:55:00+0600
 image: /images/friendship.jpg
@@ -73,7 +73,7 @@ No.
 
 ### Scope
 
-These instructions were written for a Raspberry Pi 3b. You can absolutely do all of this in an LXC and connect to the printer over the network via IPP or pass through the USB in the LXC conf. You'll need to do more configurations for the USB passthrough if you go that route, but you won't need to follow the manual build instructions I'm including here for savaprint for this to work on your machine. I am consciously not hooking up my printer to the network for security reasons despite it having a network port, but nothing is stopping you from going that route if you choose.
+These instructions were written for a Raspberry Pi 3b. You can absolutely do all of this in an LXC and connect to the printer over the network via IPP or pass through the USB in the LXC conf. You'll need to do more configurations for the USB passthrough if you go that route, but you won't need to follow the manual build instructions I'm including here for savapage for this to work on your machine. I am consciously not hooking up my printer to the network for security reasons despite it having a network port, but nothing is stopping you from going that route if you choose.
 
 I am also assuming you are using a Linux desktop. If you're on Windows, the only real modification you'll need is to use something like [Rufus](https://rufus.ie) to flash the image to the SD card on the pi instead of using the Linux CLI tools.
 
@@ -351,7 +351,7 @@ sender address: a.internal #note: I picked .internal so it won't go outbound to 
 
 Click apply after making each of these edits and the configuration required section will go away!
 
-We'll also want to configure the printer. Select Proxy Printers aand then select the edit icon under your printer. In order for savaprint to make the printer visible to users we'll need to configure a media source. For me I'll just be selecting "A4" since that's what I've configured in CUPS. Note if you want to configure dual-sided printing you need to do that within the CUPS admin interface.
+We'll also want to configure the printer. Select Proxy Printers aand then select the edit icon under your printer. In order for savapage to make the printer visible to users we'll need to configure a media source. For me I'll just be selecting "A4" since that's what I've configured in CUPS. Note if you want to configure dual-sided printing you need to do that within the CUPS admin interface.
 
 ![](/images/media-source.png)
 
