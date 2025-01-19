@@ -350,7 +350,6 @@ sender address: a.internal #note: I picked .internal so it won't go outbound to 
 ```
 
 Click apply after making each of these edits and the configuration required section will go away!
-Next we'll head 
 
 We'll also want to configure the printer. Select Proxy Printers aand then select the edit icon under your printer. In order for savaprint to make the printer visible to users we'll need to configure a media source. For me I'll just be selecting "A4" since that's what I've configured in CUPS. Note if you want to configure dual-sided printing you need to do that within the CUPS admin interface.
 
@@ -358,7 +357,7 @@ We'll also want to configure the printer. Select Proxy Printers aand then select
 
 ### Adding Users
 
-Now is an important time to mention that savapage is [free as in libre](https://www.savapage.org/docs/licenses/), not free as in beer. They do [allow permanent visiting status to instances with 10 or fewer users](https://www.savapage.org/docs/manual/ch-community.html), for home use this is just fine. If you are an institution however and need more licenses, or you just want to support a quite frankly excellent project, or would like support from them, you can find the information on subscribing [here](https://wiki.savapage.org/doku.php?id=subscription).
+Now is a good time to mention that savapage is [free as in libre](https://www.savapage.org/docs/licenses/), not free as in beer. They do [allow permanent visiting status to instances with 10 or fewer users](https://www.savapage.org/docs/manual/ch-community.html), for home use this is just fine. If you are an institution however and need more licenses, or you just want to support a quite frankly excellent project, you can find the information on subscribing [here](https://wiki.savapage.org/doku.php?id=subscription).
 
 Unless you want to hook up savapage to ldap, creating users is as easy as adding them under the "users" tab on the admin panel. Since I'm using this for home I'm just giving every user every role since I don't really need to lock it down.
 
@@ -367,7 +366,7 @@ Unless you want to hook up savapage to ldap, creating users is as easy as adding
 
 The way savapage functions is by having every document printed being converted to pdf before sending it over to the printer. If you only plan on ever printing pdfs, you're pretty much done now! However, if you want to print xmls, docx, etc... you're going to want to configure the document conversion features of savapage. 
 
-If you only install the document conversion software through libreoffice, they don't ship with things like Microsoft fonts (because those aren't libre). So savapage will re-create the document as a PDF with only the fonts available to it, which can result in very weird output. The solution to this is to make sure savapage has access to all the fonts it will ever need. To start, lets add the non-free repository for Debian and install a bunch of fonts! Grab a coffee, etc, etc...
+If you only install the document conversion software through libreoffice, they don't ship with things like Microsoft fonts (because those aren't libre). This means that savapage will re-create the document as a PDF with only the fonts available to it, which can result in very weird output. The solution to this is to make sure savapage has access to all the fonts it will ever need. To start, lets add the non-free repository for Debian and install a bunch of fonts! Grab a coffee, etc, etc...
 
 ```bash
 sudo apt install software-properties-common -y
