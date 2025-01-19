@@ -2,7 +2,7 @@
 title: Guinea Pig Re-Introductions
 description: Welcome to guinea pig fight club.
 slug: guinea-pig-re-introductions
-date: 2024-12-15 08:00:00+0600
+date: 2024-12-15 01:39:00+0600
 image: /images/pigseating.jpg
 categories:
     - Guinea Pigs
