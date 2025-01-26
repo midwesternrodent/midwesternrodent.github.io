@@ -370,7 +370,7 @@ If you only install the document conversion software through libreoffice, they d
 
 ```bash
 sudo apt install software-properties-common -y
-sudo apt-add-repository contrib non-free -yby savapage will be 
+sudo apt-add-repository contrib non-free -y
 sudo apt install ttf-mscorefonts-installer fonts-dejavu gsfonts fonts-cantarell fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito fonts-droid-fallback fonts-liberation fonts-noto fonts-opensymbol -y #optional, but highly recommended fonts.
 sudo apt install libreoffice-core unoconv libreoffice-writer libreoffice-calc libreoffice-impress # The core features needed for document conversion.
 ```
