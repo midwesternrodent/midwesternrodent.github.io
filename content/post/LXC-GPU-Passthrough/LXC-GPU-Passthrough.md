@@ -56,7 +56,7 @@ lrwxrwxrwx 1 root root 0 Jan 27 12:04 /sys/class/drm/card0/device/driver -> ../.
 lrwxrwxrwx 1 root root 0 Jan 27 12:04 /sys/class/drm/card1/device/driver -> ../../../b  
 us/pci/drivers/i915
 ```
-`i915` is the driver for Intel, and `nouveau` is the driver for Nvidia cards. So `card0` and `render128`is my intel iGPU, and `card1` and `render129` is my Nvidia discrete GPU.
+`i915` is the driver for Intel, and `nouveau` is the driver for Nvidia cards. So `card1` and `render128`is my intel iGPU, and `card0` and `render129` is my Nvidia discrete GPU.
 
  Now that you know which is which, lets run `ls -l /dev/dri` on the proxmox host to get our major and minor numbers. These numbers appear after the User and Group in the `ls -l` output.
 
@@ -68,30 +68,30 @@ crw-rw---- 1 root render 226, 128 Jan 17 14:16 renderD128
 crw-rw---- 1 root render 226, 129 Jan 17 14:16 renderD129
 ```
 
-So we can see for `card0` my major number is `226` and my minor number is `0`. For `render128` my major number is `226` and my minor number is `128`. Keep these handy, we'll need them in the next step.
+So we can see for `card1` my major number is `226` and my minor number is `0`. For `render128` my major number is `226` and my minor number is `128`. Keep these handy, we'll need them in the next step.
 
 ### Passing through the device to the LXC
 
 If your LXC is running, shut it off first and then in your proxmox host's console navigate to `/etc/pve/lxc/`. You should find a file there named with your CT ID and `.conf`, for me this is `100.conf`, yours will differ.
 
-At the bottom of the lxc.conf add the following. Replace my major and minor numbers (`226:0` and `226:128`) / device path (`/dev/dri/renderD128` and `/dev/dri/card0`) with the ones on your proxmox host.
+At the bottom of the lxc.conf add the following. Replace my major and minor numbers (`226:0` and `226:128`) / device path (`/dev/dri/renderD128` and `/dev/dri/card1`) with the ones on your proxmox host.
 
 ```
 lxc.cgroup2.devices.allow: c 226:0 rwm  
 lxc.cgroup2.devices.allow: c 226:128 rwm  
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file 0, 0  
-lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file 0, 0
+lxc.mount.entry: /dev/dri/card1 dev/dri/card1 none bind,optional,create=file 0, 0
 ```
 
 ### Background on UID and GID Mapping
 
-You can skip to [Mapping the GIDs](#Mapping-the-GIDs) if you just want the next steps. This section helps you understand why you're doing them.
+You can skip to [Mapping the GIDs](#mapping-the-gids) if you just want the next steps. This section helps you understand why you need to do all of this mapping.
 
 If you were to start your LXC now and run `ls -l /dev/dri` you'll see something like the following. You'll note only my iGPU is now visible. The 1660Ti on the other hand is still safely walled off from this LXC.
 
 ```
 total 0
-crw-rw---- 1 nobody nogroup 226,   0 Jan 17 20:16 card0
+crw-rw---- 1 nobody nogroup 226,   0 Jan 17 20:16 card1
 crw-rw---- 1 nobody nogroup 226, 128 Jan 17 20:16 renderD128
 ```
 
@@ -118,7 +118,7 @@ For my config, I need to pass through GID `44` and `104` to the LXC. Once again 
 
 For example, if we only map our video group ID `44` on the host to `44` in the container. The LXC will still map all other groups to 100000+. So, we'll have a video group with GID `44`, but we'll also have a container video group with GID `100044`. The LXC software will thankfully not put up with this duplicate nonsense and will refuse to start.
 
-To account for this, we need to map all GIDs up to `44` to those `100000` GIDs, put an exception to this mapping for group `44`, and then continue mapping to those other `100000` positions, making the same exception for the `render` GID of `104`. This means you have a little bit of arithmetic to do.
+To account for this, we need to map all GIDs up to `44` to those `100000` GIDs, put an exception to this mapping for group `44`, and then continue mapping to those other `100000` positions, making the same exception for the `render` GID of `104`. This means you have a little bit of arithmetic to do, but I promise it's not as complicated as it sounds at first glance.
 
 First, in your lxc.conf add the following. This will be the same for your system as it is mine, unless you're also mapping a specific user to the container in which case you'll need the arithmetic we're going to do in the next section for your user mappings as well.
 
@@ -128,7 +128,7 @@ lxc.idmap: u 0 100000 65536
 
 Lets walk through this statement. `lxc.idmap:` is the command for mapping UIDs and GIDs, `u` specifically calls out that this is a UID mapping. `0` tells us we're starting with the UID `0` on the LXC (which is `root`). `100000` tells us that the `0` user will be mapped to `100000` on the host. `65536` tells us we will continue in this manner for 65,536 UIDs ending at UID `65535` on the LXC and `165535` on the host (`65535` being the maximum UID).
 
-This gets more complicated when we try to add the GIDs. But let me walk you through it. 
+This gets a little more complicated when we try to add the GIDs. But let me walk you through it. 
 
 First, we need to add a group mapping from 0 up to just before the video group's GID. So in my case, I'll add the below to my config.
 
@@ -224,7 +224,7 @@ If you **need** monitoring *inside* the LXC. The only way I have been able to ge
 sysctl kernel.perf_event_paranoid=0
 ```
 
-You can now run `intel_gpu_top` within your LXC and it will work as expected, showing you all processes on the hypervisor that are running on the GPU. This value will reset to `4` after you reboot your proxmox server, but if you want to revert it without a reboot simply change it back manually and it will take affect immediately.
+You can now run `intel_gpu_top` within your LXC and it will work as expected, showing you all processes on the LXC that are running on the GPU, This value will reset to `4` after you reboot your proxmox server, but if you want to revert it without a reboot simply change it back manually and it will take effect immediately.
 
 If you want this to persist after a reboot of the proxmox host, you can create the file `/etc/sysctl/local.conf` and paste the same command you used above into that file.
 

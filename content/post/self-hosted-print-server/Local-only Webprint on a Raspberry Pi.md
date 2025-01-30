@@ -14,7 +14,7 @@ tags:
 draft: false
 ---
 
-Skip [here](#instructions) for the instructions, [this ain't a recipe site](https://midwesternrodent.com/p/scourge-of-the-internet/) despite this being a pi project. I don't have ads, and I don't care if you read my stuff. Seriously, I won't be offended.
+Skip [here](#instructions) for the instructions, [this ain't a recipe site]({{< ref "/post/scourge/scourge of the internet.md" >}}) despite this being a pi project. I don't have ads, and I don't care if you read my stuff. Seriously, I won't be offended.
 
 ## A lover's request (preamble)
 
