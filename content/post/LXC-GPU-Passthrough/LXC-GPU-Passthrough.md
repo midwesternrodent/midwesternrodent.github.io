@@ -68,7 +68,7 @@ crw-rw---- 1 root render 226, 128 Jan 17 14:16 renderD128
 crw-rw---- 1 root render 226, 129 Jan 17 14:16 renderD129
 ```
 
-So we can see for `card1` my major number is `226` and my minor number is `0`. For `render128` my major number is `226` and my minor number is `128`. Keep these handy, we'll need them in the next step.
+So we can see for `card1` my major number is `226` and my minor number is `1`. For `render128` my major number is `226` and my minor number is `128`. Keep these handy, we'll need them in the next step.
 
 ### Passing through the device to the LXC
 
@@ -77,7 +77,7 @@ If your LXC is running, shut it off first and then in your proxmox host's consol
 At the bottom of the lxc.conf add the following. Replace my major and minor numbers (`226:0` and `226:128`) / device path (`/dev/dri/renderD128` and `/dev/dri/card1`) with the ones on your proxmox host.
 
 ```
-lxc.cgroup2.devices.allow: c 226:0 rwm  
+lxc.cgroup2.devices.allow: c 226:1 rwm  
 lxc.cgroup2.devices.allow: c 226:128 rwm  
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file 0, 0  
 lxc.mount.entry: /dev/dri/card1 dev/dri/card1 none bind,optional,create=file 0, 0
@@ -91,7 +91,7 @@ If you were to start your LXC now and run `ls -l /dev/dri` you'll see something 
 
 ```
 total 0
-crw-rw---- 1 nobody nogroup 226,   0 Jan 17 20:16 card1
+crw-rw---- 1 nobody nogroup 226,   1 Jan 17 20:16 card1
 crw-rw---- 1 nobody nogroup 226, 128 Jan 17 20:16 renderD128
 ```
 
