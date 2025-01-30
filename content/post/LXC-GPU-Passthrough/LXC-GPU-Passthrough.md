@@ -74,7 +74,7 @@ So we can see for `card1` my major number is `226` and my minor number is `1`. F
 
 If your LXC is running, shut it off first and then in your proxmox host's console navigate to `/etc/pve/lxc/`. You should find a file there named with your CT ID and `.conf`, for me this is `100.conf`, yours will differ.
 
-At the bottom of the lxc.conf add the following. Replace my major and minor numbers (`226:0` and `226:128`) / device path (`/dev/dri/renderD128` and `/dev/dri/card1`) with the ones on your proxmox host.
+At the bottom of the lxc.conf add the following. Replace my major and minor numbers (`226:1` and `226:128`) / device path (`/dev/dri/renderD128` and `/dev/dri/card1`) with the ones on your proxmox host.
 
 ```
 lxc.cgroup2.devices.allow: c 226:1 rwm  
