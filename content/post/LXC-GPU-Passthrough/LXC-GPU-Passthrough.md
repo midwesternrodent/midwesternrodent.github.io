@@ -4,11 +4,12 @@ description: Get the full functionality from your GPU within an LXC, and keep it
 slug: LXC-GPU-Passthrough
 date: 2025-01-27 00:26:00+0000
 categories:
-    - Self-Hosting
+    - How-To
 tags:
     - LXC
     - Virtualization
     - Hardware Passthrough
+    - Self-Hosting
 draft: false
 ---
 
@@ -229,4 +230,4 @@ You can now run `intel_gpu_top` within your LXC and it will work as expected, sh
 If you want this to persist after a reboot of the proxmox host, you can create the file `/etc/sysctl/local.conf` and paste the same command you used above into that file.
 
 ## Recap and next steps
-You now have your GPU available for use inside your LXC, and you can use these same steps to share that GPU between multiple LXCs as well as the host. If you'd like to learn more about why GPU monitoring within an LXC is such a difficult topic, check out my [next blog post](https://midwesternrodent.com/p/gpu-monitoring_problems/) whenever I publish it in the next day or so. This one was getting a little long to add potentially irrelevant information. Until next time!
+You now have your GPU available for use inside your LXC, and you can use these same steps to share that GPU between multiple LXCs as well as the host. If you'd like to learn more about why GPU monitoring within an LXC is such a difficult topic, check out my [next blog post]({{< ref "/post/GPU-Monitoring-Problems/GPU-Monitoring-Problems.md" >}}) whenever I publish it in the next day or so. This one was getting a little long to add potentially irrelevant information. Until next time!
