@@ -9,13 +9,12 @@ categories:
 tags:
     - LXC
     - Virtualization
-    - Docker
     - Proxmox
-    - Docker-Compose
     - Linux Kernel Capabilities
     - AppArmor
     - seccomp
     - control groups
+    - libcap
 draft: false
 ---
 ## A deep dive into performance monitoring within LXCs
