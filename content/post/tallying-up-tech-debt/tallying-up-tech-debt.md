@@ -10,7 +10,7 @@ tags:
     - self-hosting
     - homelab
     - infrastructured
-draft: true
+draft: false
 ---
 ## My First Homelab
 Back in the fall of 2019, I was a recent college grad working my first year as a science teacher in the Southern United States. Understanding my career choice, my chosen subject, my location, and the time frame, you can likely put together why I now work in IT and live in the Midwest. Add an angry mob, some pitch forks, and some torches, and your imagination will match reality pretty closely. While both of my parents were software engineers, and my minor was in computer science, I didn't really have any hands-on experience that I could leverage to get a job in IT. That's where a $50 Dell Optiplex 7010 with a 3rd gen Intel i5 I found on Facebook marketplace saves the day.
