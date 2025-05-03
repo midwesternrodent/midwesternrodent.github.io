@@ -94,7 +94,7 @@ Quote all text cells should be checked
 
 This is the laziest part. I used [csvjson.com](https://csvjson.com/csv2json). Open up your newly created CSV in your text editor, copy the content to your clipboard, paste the CSV onto that website, click "convert." The site seems fine, and we're not downloading anything from it anyway or transferring any sensitive information (unless your threat model includes YouTube subscriptions, in which case I would advise you to re-think your threat model and stop watching YouTube).
 
-![csv2json converter site example](/images/csv2json)
+![csv2json converter site example](/images/csv2json.png)
 
 Next create a new file in your text editor, paste the following into it, and then copy the output from csvjson.com where it says `PASTE_HERE` below.
 
