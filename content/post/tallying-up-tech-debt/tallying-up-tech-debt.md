@@ -9,7 +9,7 @@ categories:
 tags:
     - self-hosting
     - homelab
-    - infrastructured
+    - infrastructure
 draft: false
 ---
 ## My First Homelab
